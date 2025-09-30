@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashish Sharma | Portfolio</title>
+    <meta name="description" content="Portfolio of Ashish Sharma - Software Developer (MCA) with experience in web development, machine learning projects, and leadership achievements." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0e1116;
+            --bg-alt: #161b22;
+            --text: #e6edf3;
+            --text-soft: #9aa4b1;
+            --accent: #3d8bfd;
+            --accent-grad: linear-gradient(135deg,#3d8bfd,#6f42c1 60%,#d63384);
+            --border: #29313b;
+            --radius: 14px;
+            --max-width: 1060px;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin:0; font-family: 'Inter', system-ui, Arial, sans-serif; background: var(--bg); color: var(--text); line-height:1.55; }
+        a { color: var(--accent); text-decoration:none; }
+        a:hover, a:focus-visible { text-decoration:underline; }
+        header.site-header { position:sticky; top:0; z-index:50; backdrop-filter: blur(12px); background:rgba(14,17,22,0.85); border-bottom:1px solid var(--border); }
+    nav { display:flex; gap:1rem; align-items:center; justify-content:space-between; max-width:var(--max-width); margin:0 auto; padding: .65rem 1.1rem; position:relative; }
+    nav .brand { font-weight:700; letter-spacing:.5px; font-size:1.05rem; display:flex; align-items:center; gap:.6rem; }
+    nav .brand span.role { font-weight:500; font-size:.65rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+    .nav-links { display:flex; }
+    nav ul { list-style:none; display:flex; gap:.4rem; margin:0; padding:0; align-items:center; }
+    nav a.nav-link { padding:.6rem .75rem; border-radius: 8px; font-weight:500; font-size:.78rem; display:inline-block; line-height:1; }
+    nav a.nav-link:hover, nav a.nav-link:focus-visible { background: var(--bg-alt); text-decoration:none; }
+    .nav-toggle { display:none; background:#1c2430; color:var(--text); border:1px solid var(--border); padding:.55rem .75rem; border-radius:10px; cursor:pointer; font:inherit; font-size:.8rem; font-weight:600; letter-spacing:.5px; }
+    .nav-toggle:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+        .hero { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:center; max-width:var(--max-width); padding: clamp(2rem,7vw,5rem) 1.25rem 2rem; margin:0 auto; }
+    .hero-text h1 { font-size: clamp(1.9rem,4.5vw,3.1rem); line-height:1.1; margin:0 0 1rem; background: var(--accent-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .tagline { font-size:1.05rem; color: var(--text-soft); max-width:60ch; }
+        .quick-contact { margin:1.4rem 0 0; display:flex; flex-wrap:wrap; gap:.75rem; }
+        .chip { background: var(--bg-alt); border:1px solid var(--border); padding:.55rem .85rem; border-radius: 100px; font-size:.75rem; letter-spacing:.5px; color: var(--text-soft); display:inline-flex; align-items:center; gap:.4rem; }
+        .chip a { color: var(--text); font-weight:500; }
+        .hero-media { text-align:center; }
+        .hero-media figure { margin:0; }
+        .hero-media img { width: 230px; max-width:100%; border-radius:50%; border:3px solid #243041; box-shadow:0 4px 30px -10px rgba(0,0,0,.6); }
+        main { max-width:var(--max-width); margin:0 auto; padding: 0 1.25rem 4rem; }
+        section.section { padding: 2.5rem 0 1rem; border-top:1px solid var(--border); }
+        section.section:first-of-type { border-top:none; }
+        section.section h2 { margin:0 0 1.25rem; font-size:1.65rem; letter-spacing:.5px; }
+        .grid { display:grid; gap:1.5rem; }
+        .two-col { grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); }
+        .card { background: linear-gradient(145deg,#141a22,#10151b); border:1px solid var(--border); padding:1.25rem 1.25rem 1.15rem; border-radius: var(--radius); position:relative; }
+        .card h3 { margin:.15rem 0 .65rem; font-size:1.05rem; letter-spacing:.3px; }
+        .meta { font-size:.7rem; text-transform:uppercase; letter-spacing:1px; color: var(--text-soft); margin-bottom:.6rem; font-weight:600; }
+        ul.clean { list-style:none; margin:0; padding:0; }
+        ul.clean li { margin:0 0 .45rem; padding-left:1.15rem; position:relative; }
+        ul.clean li:before { content:""; position:absolute; left:0; top:.55rem; width:6px; height:6px; border-radius:50%; background: var(--accent); opacity:.9; }
+        .skills-groups { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+        .skill-pill { background:#1d242d; border:1px solid #25313d; padding:.4rem .7rem; border-radius: 8px; font-size:.7rem; letter-spacing:.5px; font-weight:500; }
+        .pill-wrap { display:flex; flex-wrap:wrap; gap:.5rem; }
+        .soft-skills { display:flex; flex-wrap:wrap; gap:.6rem; }
+        .soft-skills .skill-pill { background:#232d38; }
+        .timeline { border-left:2px solid var(--border); padding-left:1rem; margin:0; list-style:none; }
+        .timeline li { margin:0 0 1.4rem; position:relative; }
+        .timeline li:before { content:""; position:absolute; left:-1.12rem; top:.3rem; width:14px; height:14px; border:3px solid var(--bg); background: var(--accent); border-radius:50%; box-shadow:0 0 0 2px var(--border); }
+        .timeline h3 { margin:.1rem 0 .35rem; font-size:1rem; }
+        .timeline .period { font-size:.68rem; letter-spacing:1px; text-transform:uppercase; color:var(--text-soft); font-weight:600; }
+    .achievements { columns: 2 320px; column-gap:1.75rem; list-style:none; margin:0; padding:0; }
+        .achievements li { break-inside:avoid; margin:0 0 .9rem; padding-left:1rem; position:relative; }
+        .achievements li:before { content:"▹"; position:absolute; left:0; color:var(--accent); }
+        .project-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.4rem; }
+        .project-tags span { font-size:.6rem; letter-spacing:.5px; background:#202832; padding:.35rem .55rem; border-radius:6px; border:1px solid #28313d; font-weight:500; }
+        .project-card { transition: background .25s, transform .25s; }
+        .project-card:hover { background:#182028; transform: translateY(-4px); }
+        .inline-badge { display:inline-block; background:#1d2732; border:1px solid #28313a; padding:.25rem .55rem; font-size:.6rem; letter-spacing:.5px; border-radius:30px; margin-left:.4rem; vertical-align:middle; }
+        .nowrap { white-space:nowrap; }
+        footer { max-width:var(--max-width); margin:0 auto; padding:2rem 1.25rem 3rem; text-align:center; color: var(--text-soft); font-size:.75rem; border-top:1px solid var(--border); }
+        .top-link { position:fixed; right:1.1rem; bottom:1.1rem; background: var(--accent-grad); color:#fff; width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:12px; font-weight:600; text-decoration:none; box-shadow:0 6px 25px -8px rgba(0,0,0,.6); }
+        .top-link:focus-visible { outline:2px solid #fff; outline-offset:2px; }
+        .print-btn { background: var(--accent-grad); border:none; color:#fff; padding:.65rem 1rem; border-radius:10px; font-weight:600; cursor:pointer; font-size:.75rem; letter-spacing:.5px; box-shadow:0 4px 18px -6px rgba(0,0,0,.55); }
+        .print-btn:hover { opacity:.9; }
+        .actions { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.2rem; }
+        .separator { height:1px; background:var(--border); margin:2.5rem 0 1.5rem; border:none; }
+        .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); border:0; }
+                @media (max-width:900px) {
+                    .hero { grid-template-columns:1fr; text-align:left; }
+                    .hero-media { order:-1; }
+                    .hero-media img { width:170px; }
+                }
+                @media (max-width:780px) {
+                    .nav-toggle { display:inline-block; }
+                    .nav-links { position:absolute; top:100%; right:0; left:0; background:rgba(16,21,27,0.97); flex-direction:column; padding:.75rem .85rem 1rem; border-bottom:1px solid var(--border); gap:.35rem; max-height:0; overflow:hidden; transition:max-height .4s ease; }
+                    .nav-links.open { max-height:420px; }
+                    nav ul { flex-direction:column; align-items:stretch; gap:.15rem; }
+                    nav a.nav-link { padding:.8rem .9rem; font-size:.82rem; border-radius:8px; }
+                    nav a.nav-link:active { background: var(--bg-alt); }
+                }
+                @media (max-width:680px) {
+                    .hero { padding-top:4.2rem; }
+                    .skills-groups { grid-template-columns:1fr; }
+                    .achievements { columns:1 100%; }
+                    section.section h2 { font-size:1.45rem; }
+                    .tagline { font-size:.95rem; }
+                    .timeline { padding-left:.75rem; }
+                }
+                @media (max-width:480px) {
+                    body { font-size:15px; }
+                    .hero-media img { width:150px; }
+                    .chip { font-size:.63rem; }
+                    nav a.nav-link { font-size:.78rem; }
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    * { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition:none !important; scroll-behavior:auto !important; }
+                }
+        @media print {
+          header.site-header, .top-link, .actions { display:none !important; }
+          body { background:#fff; color:#000; }
+          .card, .chip, .skill-pill { border-color:#ccc; }
+          a { color:#000; }
+        }
+    </style>
+</head>
+<body>
+    <a id="top" class="sr-only" aria-hidden="true" tabindex="-1">Top</a>
+    <header class="site-header" role="banner">
+        <nav aria-label="Primary navigation">
+            <div class="brand">
+                <span>Ashish Sharma</span>
+                <span class="role">Software Developer</span>
+            </div>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu ☰</button>
+            <div id="primary-menu" class="nav-links" hidden>
+                <ul>
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#experience">Experience</a></li>
+                    <li><a class="nav-link" href="#projects">Projects</a></li>
+                    <li><a class="nav-link" href="#skills">Skills</a></li>
+                    <li><a class="nav-link" href="#achievements">Leadership</a></li>
+                    <li><a class="nav-link" href="#education">Education</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="intro-heading">
+        <div class="hero-text">
+            <h1 id="intro-heading">Ashish Sharma</h1>
+            <p class="tagline">Aspiring Software Developer (MCA) focused on building efficient, user-centric web applications and practical machine learning solutions. Passionate about clean architecture, performance, and solving real-world problems through technology.</p>
+            <div class="quick-contact" aria-label="Contact quick info">
+                <div class="chip">📧 <a href="mailto:ashvick8416@gmail.com">ashvick8416@gmail.com</a></div>
+                <div class="chip">📱 <a href="tel:+919506192284" class="nowrap">+91 95061 92284</a></div>
+                <div class="chip">🌐 <a href="https://github.com/Ashvick21" target="_blank" rel="noopener">GitHub</a></div>
+                <div class="chip">🏙️ Varanasi, India</div>
+            </div>
+            <div class="actions">
+                <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+                <a class="print-btn" style="text-decoration:none; background:#1d2732; border:1px solid #2b3947;" href="#projects">View Projects ↓</a>
+            </div>
+        </div>
+        <div class="hero-media">
+            <figure>
+                <img src="assets/P.jpg" alt="Portrait of Ashish Sharma" loading="lazy" />
+            </figure>
+        </div>
+    </section>
+
+    <main id="content" role="main">
+        <section id="about" class="section" aria-labelledby="about-heading">
+            <h2 id="about-heading">Objective</h2>
+            <p>To obtain a responsible and growth-oriented position in a reputed organization where I can effectively contribute my technical, analytical, and interpersonal skills. I aim to utilize my academic knowledge, project experience, and leadership qualities to add value to the team while continuously learning and evolving in a dynamic work environment.</p>
+        </section>
+
+        <section id="experience" class="section" aria-labelledby="exp-heading">
+            <h2 id="exp-heading">Experience</h2>
+            <div class="grid">
+                <article class="card" aria-labelledby="exp1-title">
+                    <div class="meta">Jul 2024 – Aug 2024 · Internship</div>
+                    <h3 id="exp1-title">Software Developer Intern – Ashrisha IT Solutions</h3>
+                    <ul class="clean">
+                        <li>Contributed to development of a classified advertisement platform.</li>
+                        <li>Implemented UI components, search & filter features, and backend data flow.</li>
+                        <li>Collaborated with senior developers to optimize performance & UX.</li>
+                        <li>Worked across HTML, CSS, JavaScript, PHP, and MySQL stack.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <div class="grid two-col">
+                <article class="card project-card" aria-labelledby="proj1-title">
+                    <div class="meta">Web Development</div>
+                    <h3 id="proj1-title">Classified Ads Website</h3>
+                    <p>Full-stack web application enabling users to register, post ads, perform advanced search & filtering, and enabling admins to moderate content.</p>
+                    <ul class="clean">
+                        <li>Implemented CRUD operations and secure form handling.</li>
+                        <li>Integrated MySQL database for structured data storage.</li>
+                        <li>Responsive UI with performance-focused optimizations.</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>XAMPP</span>
+                    </div>
+                </article>
+                <article class="card project-card" aria-labelledby="proj2-title">
+                    <div class="meta">Machine Learning</div>
+                    <h3 id="proj2-title">Diabetes Prediction System</h3>
+                    <p>Predictive analytics tool leveraging health metrics to assess diabetes risk using supervised learning.</p>
+                    <ul class="clean">
+                        <li>Random Forest model with preprocessing & evaluation pipeline.</li>
+                        <li>Data cleaning, visualization, and performance tuning.</li>
+                        <li>Streamlit-based interface for user-friendly predictions.</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>Streamlit</span><span>ML</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="workshops" class="section" aria-labelledby="workshops-heading">
+            <h2 id="workshops-heading">Workshops & Training</h2>
+            <ul class="clean">
+                <li>React JS with Web API – Kamadgiri Software Solutions Pvt. Ltd.</li>
+                <li>Python Workshop – Aradhya Technologies & Skill Development Pvt. Ltd.</li>
+                <li>PHP with Laravel Framework – Kamadgiri Software Solutions Pvt. Ltd.</li>
+                <li>Problem-Solving & Logical Thinking using Python – Minicimex Tech.</li>
+            </ul>
+        </section>
+
+        <section id="skills" class="section" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Technical Skills</h2>
+            <div class="skills-groups">
+                <div class="card">
+                    <h3>Programming</h3>
+                    <div class="pill-wrap">
+                        <span class="skill-pill">C</span>
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">PHP</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Web & UI</h3>
+                    <div class="pill-wrap">
+                        <span class="skill-pill">HTML</span>
+                        <span class="skill-pill">CSS</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">Bootstrap (basic)</span>
+                        <span class="skill-pill">jQuery (basic)</span>
+                        <span class="skill-pill">React.js (learning)</span>
+                        <span class="skill-pill">Laravel (beginner)</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Databases & Tools</h3>
+                    <div class="pill-wrap">
+                        <span class="skill-pill">MySQL</span>
+                        <span class="skill-pill">phpMyAdmin</span>
+                        <span class="skill-pill">XAMPP</span>
+                        <span class="skill-pill">VS Code</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Data & ML</h3>
+                    <div class="pill-wrap">
+                        <span class="skill-pill">Pandas</span>
+                        <span class="skill-pill">NumPy</span>
+                        <span class="skill-pill">Matplotlib</span>
+                        <span class="skill-pill">Scikit-learn</span>
+                        <span class="skill-pill">Logistic Regression</span>
+                        <span class="skill-pill">Decision Trees</span>
+                        <span class="skill-pill">Random Forest</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Soft Skills</h3>
+                    <div class="soft-skills">
+                        <span class="skill-pill">Problem Solving</span>
+                        <span class="skill-pill">Collaboration</span>
+                        <span class="skill-pill">Adaptability</span>
+                        <span class="skill-pill">Time Management</span>
+                        <span class="skill-pill">Initiative</span>
+                        <span class="skill-pill">Critical Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="section" aria-labelledby="achievements-heading">
+            <h2 id="achievements-heading">Leadership & Achievements</h2>
+            <ul class="achievements">
+                <li>Class Representative (MCA) 2023–2025: Managed coordination between faculty and students.</li>
+                <li>Team Leader – Tech Marathon 11: Led 24-hour challenge; developed innovative solution <em>Griah Utpaad</em>.</li>
+                <li>1st position – Table Tennis (School level).</li>
+                <li>2nd position – Dodgeball (School level).</li>
+                <li>Active participation in coding & technical college events.</li>
+                <li>Secured 3rd rank in MCA at School of Management Sciences, Varanasi.</li>
+            </ul>
+        </section>
+
+        <section id="education" class="section" aria-labelledby="education-heading">
+            <h2 id="education-heading">Education</h2>
+            <ol class="timeline" aria-label="Education timeline">
+                <li>
+                    <div class="period">2023 – 2025</div>
+                    <h3>Master of Computer Applications (MCA)</h3>
+                    <p>School of Management Sciences, Varanasi</p>
+                </li>
+                <li>
+                    <div class="period">2019 – 2022</div>
+                    <h3>Bachelor of Science (Mathematics)</h3>
+                    <p>Udai Pratap College, Varanasi</p>
+                </li>
+                <li>
+                    <div class="period">May 2022 – Oct 2022</div>
+                    <h3>Diploma in Information & Computer Technology</h3>
+                    <p>Udai Pratap College, Varanasi</p>
+                </li>
+                <li>
+                    <div class="period">2016 – 2017</div>
+                    <h3>Intermediate (CBSE)</h3>
+                    <p>Glorious Academy, Varanasi</p>
+                </li>
+                <li>
+                    <div class="period">2014 – 2015</div>
+                    <h3>Higher Secondary (CBSE)</h3>
+                    <p>Glorious Academy, Varanasi</p>
+                </li>
+            </ol>
+        </section>
+
+        <section id="contact" class="section" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <div class="grid two-col">
+                <div class="card">
+                    <h3>Get in Touch</h3>
+                    <p>If you'd like to collaborate, discuss an opportunity, or talk about a project, feel free to reach out.</p>
+                    <ul class="clean">
+                        <li>Email: <a href="mailto:ashvick8416@gmail.com">ashvick8416@gmail.com</a></li>
+                        <li>Phone: <a href="tel:+919506192284">+91 95061 92284</a></li>
+                        <li>GitHub: <a href="https://github.com/Ashvick21" target="_blank" rel="noopener">github.com/Ashvick21</a></li>
+                    </ul>
+                </div>
+                <div class="card" aria-labelledby="cta-form">
+                    <h3 id="cta-form">Quick Message (static)</h3>
+                    <p style="font-size:.8rem; color:var(--text-soft);">(Form not wired to backend. Replace with service or script.)</p>
+                    <form onsubmit="event.preventDefault(); alert('Thanks! For a real form, integrate backend or a service like Formspree.');" aria-label="Contact form">
+                        <label style="display:block; font-size:.7rem; text-transform:uppercase; letter-spacing:1px; margin:.75rem 0 .25rem;">Name
+                            <input required name="name" style="width:100%; padding:.6rem .7rem; border-radius:8px; background:#1a222b; border:1px solid #2a3642; color:var(--text); font:inherit;" />
+                        </label>
+                        <label style="display:block; font-size:.7rem; text-transform:uppercase; letter-spacing:1px; margin:.75rem 0 .25rem;">Email
+                            <input type="email" required name="email" style="width:100%; padding:.6rem .7rem; border-radius:8px; background:#1a222b; border:1px solid #2a3642; color:var(--text); font:inherit;" />
+                        </label>
+                        <label style="display:block; font-size:.7rem; text-transform:uppercase; letter-spacing:1px; margin:.75rem 0 .25rem;">Message
+                            <textarea required name="message" rows="4" style="width:100%; padding:.6rem .7rem; border-radius:8px; background:#1a222b; border:1px solid #2a3642; resize:vertical; color:var(--text); font:inherit;"></textarea>
+                        </label>
+                        <button type="submit" class="print-btn" style="margin-top:.6rem;">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; <span id="year"></span> Ashish Sharma. Built with semantic HTML & CSS. Last updated <span id="lastUpdated"></span>.</p>
+    </footer>
+
+    <a href="#top" class="top-link" aria-label="Back to top">↑</a>
+    <script>
+        // Set dynamic year & last modified info
+        (function(){
+            const yEl = document.getElementById('year');
+            const lEl = document.getElementById('lastUpdated');
+            if (yEl) yEl.textContent = new Date().getFullYear();
+            if (lEl) lEl.textContent = new Date(document.lastModified).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+        })();
+        // Mobile navigation toggle (accessible)
+        (function(){
+            const btn = document.querySelector('.nav-toggle');
+            const menu = document.getElementById('primary-menu');
+            if(!btn || !menu) return;
+            function closeMenu(){
+                menu.classList.remove('open');
+                menu.hidden = true;
+                btn.setAttribute('aria-expanded','false');
+            }
+            btn.addEventListener('click', ()=>{
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                if(expanded){
+                    closeMenu();
+                } else {
+                    menu.hidden = false;
+                    requestAnimationFrame(()=> menu.classList.add('open'));
+                    btn.setAttribute('aria-expanded','true');
+                }
+            });
+            // Close on nav link click (mobile)
+            menu.addEventListener('click', e=>{
+                if(e.target.closest('a.nav-link')) closeMenu();
+            });
+            // Close on escape
+            document.addEventListener('keydown', e=>{
+                if(e.key==='Escape') closeMenu();
+            });
+            // Basic focus trap when open (lightweight)
+            document.addEventListener('focusin', e=>{
+                if(!menu.classList.contains('open')) return;
+                if(!menu.contains(e.target) && e.target !== btn){
+                    menu.querySelector('a,button')?.focus();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
